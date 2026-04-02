@@ -42,7 +42,7 @@ body {
   color: #aaa;
 }
 
-/* 🔥 FIXED BUTTON LAYOUT */
+/* Button Layout */
 .buttons div {
   display: flex;
   justify-content: center;
@@ -55,23 +55,30 @@ button {
   margin: 5px;
   border: none;
   border-radius: 12px;
-  background: #444;
+  background: #333;
   color: white;
 }
 
 button:hover {
   background: #666;
 }
+
+/* Operator buttons */
+.buttons div button:nth-child(4) {
+  background: orange;
+}
 </style>
 </head>
 
 <body>
 
-<h2>Pro Calculator</h2>
+<h2>Calculator App</h2>
+<p>Built by Sayandana</p>
 
 <div class="calculator">
 
 <div class="history" id="history"></div>
+<button onclick="clearHistory()">Clear History</button>
 
 <input type="text" id="display" readonly>
 
@@ -148,7 +155,12 @@ function percentage() {
   document.getElementById("display").value = eval(value) / 100;
 }
 
-// 🔥 Keyboard Support
+/* ✅ FIXED clear history */
+function clearHistory() {
+  document.getElementById("history").innerHTML = "";
+}
+
+// Keyboard Support
 document.addEventListener("keydown", function(event) {
   let key = event.key;
 
